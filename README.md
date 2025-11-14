@@ -1,221 +1,219 @@
-# CogniBee
+# CogniBee  
 Trabalho de Conclusão de Curso (Projeto CogniBee)
 
-Visão Geral
+![License](https://img.shields.io/badge/license-MIT-green)
+![Platform](https://img.shields.io/badge/platform-ESP32-blue)
+![Language](https://img.shields.io/badge/language-C%2B%2B-orange)
+![Status](https://img.shields.io/badge/status-Protótipo%20Funcional-yellow)
+![Last Commit](https://img.shields.io/github/last-commit/stcharlie98/CogniBee)
+![Repo Size](https://img.shields.io/github/repo-size/stcharlie98/CogniBee)
+![Top Language](https://img.shields.io/github/languages/top/stcharlie98/CogniBee)
+![PCB Revision](https://img.shields.io/badge/PCB-Rev%203.0-blue)
 
-O CogniBee é um sistema de monitoramento para colmeias que integra sensores, firmware modular, conectividade e um conjunto de modelos 2D/3D e PCB desenvolvidos especificamente para o protótipo.
+---
+
+## Visão Geral
+
+O CogniBee é um sistema de monitoramento para colmeias que integra sensores, firmware modular, conectividade e um conjunto de modelos 2D/3D e PCB desenvolvidos especificamente para o protótipo.  
 O sistema registra temperatura, umidade e peso da colmeia, permitindo análises contínuas com baixo consumo de energia através de deep sleep programável.
 
 Este repositório reúne o firmware do ESP32, modelos mecânicos, arquivos da PCB e uma versão anterior do site usado para visualização de dados.
 
-Funcionalidades Principais
+---
 
-Medição de temperatura e umidade (DHT22)
+## Funcionalidades Principais
 
-Medição de peso com célula de carga + HX711
+- Medição de temperatura e umidade (DHT22)  
+- Medição de peso com célula de carga + HX711  
+- Envio de telemetria via MQTT/Blynk  
+- Gerenciamento de energia com deep sleep  
+- Arquitetura modular do firmware  
+- Estrutura física compacta adaptada ao interior da colmeia  
+- PCB projetada para o protótipo (Rev. 3.0)
 
-Envio de telemetria via MQTT/Blynk
+---
 
-Gerenciamento de energia com deep sleep
+## Como usar o código Arduino
 
-Arquitetura modular do firmware
+A pasta `/Arduino Code/mainCode` contém o firmware modular do ESP32.
 
-Estrutura física compacta adaptada ao interior da colmeia
+### 1. Requisitos
 
-PCB projetada para o protótipo (Rev. 3.0)
+- ESP32 DevKit  
+- Arduino IDE 2.x  
+- Bibliotecas necessárias:  
+  - DHT sensor library  
+  - Adafruit Unified Sensor  
+  - HX711  
+  - WiFi (nativa)  
+  - Blynk ou PubSubClient  
 
-Como usar o código Arduino
+### 2. Configuração
 
-A pasta /Arduino Code/mainCode contém o firmware modular do ESP32.
+No arquivo `config.h`, ajuste:
 
-1. Requisitos
+- Pinos do DHT22  
+- Pinos do HX711  
+- Fator de calibração da balança  
+- Intervalos de deep sleep  
 
-ESP32 DevKit
+No arquivo `credentials.h`, informe:
 
-Arduino IDE 2.x
+- Wi-Fi SSID e senha  
+- Token Blynk ou parâmetros MQTT
 
-Bibliotecas:
+### 3. Upload
 
-DHT sensor library
+1. Abra a Arduino IDE  
+2. Vá em **Arquivo > Abrir** e selecione o diretório `mainCode`  
+3. Em **Ferramentas**, selecione:  
+   - Placa: **ESP32 Dev Module**  
+   - Porta correspondente  
+4. Clique em **Upload**
 
-Adafruit Unified Sensor
+Após o envio, o ESP32 executará automaticamente o ciclo de leitura → transmissão → deep sleep.
 
-HX711
+---
 
-WiFi (nativa)
+## Estrutura do Repositório
 
-Blynk ou PubSubClient (dependendo da sua configuração)
-
-2. Configuração
-
-No arquivo config.h, ajuste:
-
-Pinos do DHT22
-
-Pinos do HX711
-
-Fator de calibração da balança
-
-Intervalos de deep sleep
-
-No arquivo credentials.h, informe:
-
-Wi-Fi SSID e senha
-
-Token Blynk ou parâmetros MQTT
-
-3. Upload
-
-Abra Arduino IDE
-
-Vá em Arquivo > Abrir e selecione o diretório mainCode
-
-Em Ferramentas, selecione:
-
-Placa: ESP32 Dev Module
-
-Porta correspondente
-
-Clique em Upload
-
-Após o envio, o ESP32 executará um ciclo de leitura, transmissão e deep sleep automaticamente.
-
-Estrutura do Repositório
 /Arduino Code
-    mainCode/          → Firmware do ESP32
-/AutoCAD 2D            → Desenhos estruturais
-/Fusion                → Modelos 3D
-/PCB                   → Projeto da PCB (Rev. 3.0)
-/Website               → Versão antiga do site
+mainCode/ → Firmware do ESP32
+/AutoCAD 2D → Desenhos estruturais
+/Fusion → Modelos 3D
+/PCB → Projeto da PCB (Rev. 3.0)
+/Website → Versão antiga do site
 LICENSE
 README.md
 
-Tecnologias Utilizadas
+yaml
+Copy code
 
-ESP32 – Firmware em C++
+---
 
-MQTT / Blynk
+## Tecnologias Utilizadas
 
-AutoCAD 2D
+- ESP32 – Firmware em C++  
+- MQTT / Blynk  
+- AutoCAD 2D  
+- Fusion 360  
+- Software de EDA para PCB  
+- HTML/CSS/JS (versão antiga do site)
 
-Fusion 360
+---
 
-Software de EDA para PCB
-
-HTML/CSS/JS (versão antiga do site)
-
-Licença
+## Licença
 
 Distribuído sob a licença MIT.
 
-🇺🇸 README.md — English Version (Concise, Professional, No AI Tone)
-CogniBee — Intelligent Beehive Monitoring System
+---
 
-Undergraduate Thesis Project – Control and Automation Engineering
+# 🇺🇸 README — English Version
 
-Overview
+# CogniBee  
+Intelligent Beehive Monitoring System
 
-CogniBee is an embedded monitoring system for beehives combining sensors, modular firmware, IoT communication and custom PCB and mechanical design.
+![License](https://img.shields.io/badge/license-MIT-green)
+![Platform](https://img.shields.io/badge/platform-ESP32-blue)
+![Language](https://img.shields.io/badge/language-C%2B%2B-orange)
+![Status](https://img.shields.io/badge/status-Working%20Prototype-yellow)
+![Last Commit](https://img.shields.io/github/last-commit/stcharlie98/CogniBee)
+![Repo Size](https://img.shields.io/github/repo-size/stcharlie98/CogniBee)
+![Top Language](https://img.shields.io/github/languages/top/stcharlie98/CogniBee)
+![PCB Revision](https://img.shields.io/badge/PCB-Rev%203.0-blue)
+
+---
+
+## Overview
+
+CogniBee is an embedded monitoring system for beehives combining sensors, modular firmware, IoT communication and custom PCB and mechanical design.  
 It records temperature, humidity and weight, operating with low power consumption through a deep sleep routine optimized for field use.
 
 This repository contains the ESP32 firmware, mechanical models, PCB files and an older version of the website used for data display.
 
-Key Features
+---
 
-Temperature and humidity measurement (DHT22)
+## Key Features
 
-Weight measurement using load cell + HX711
+- Temperature and humidity measurement (DHT22)  
+- Weight measurement using load cell + HX711  
+- MQTT/Blynk telemetry  
+- Deep sleep power management  
+- Modular firmware structure  
+- Mechanical design adapted for hive installation  
+- Custom PCB (Rev. 3.0)
 
-MQTT/Blynk telemetry
+---
 
-Deep sleep power management
+## How to Use the Arduino Code
 
-Modular firmware structure
+The ESP32 firmware is located in `/Arduino Code/mainCode`.
 
-Mechanical design adapted for hive installation
+### 1. Requirements
 
-Custom PCB (Rev. 3.0)
+- ESP32 DevKit  
+- Arduino IDE 2.x  
+- Required libraries:  
+  - DHT sensor library  
+  - Adafruit Unified Sensor  
+  - HX711  
+  - WiFi (built-in)  
+  - Blynk or PubSubClient  
 
-How to use the Arduino code
+### 2. Configuration
 
-The ESP32 firmware is located in /Arduino Code/mainCode.
+In `config.h`, set:
 
-1. Requirements
+- DHT22 pins  
+- HX711 pins  
+- Load cell calibration factor  
+- Deep sleep intervals  
 
-ESP32 DevKit
+In `credentials.h`, set:
 
-Arduino IDE 2.x
+- Wi-Fi SSID and password  
+- Blynk token or MQTT credentials
 
-Required libraries:
+### 3. Upload
 
-DHT sensor library
-
-Adafruit Unified Sensor
-
-HX711
-
-WiFi (built-in)
-
-Blynk or PubSubClient
-
-2. Configuration
-
-In config.h, set:
-
-DHT22 pins
-
-HX711 pins
-
-Load cell calibration factor
-
-Deep sleep intervals
-
-In credentials.h, set:
-
-Wi-Fi SSID and password
-
-Blynk token or MQTT credentials
-
-3. Upload
-
-Open Arduino IDE
-
-Load the mainCode directory
-
-Select:
-
-Board: ESP32 Dev Module
-
-Correct COM port
-
-Click Upload
+1. Open Arduino IDE  
+2. Load the `mainCode` directory  
+3. Select:  
+   - Board: **ESP32 Dev Module**  
+   - Correct COM port  
+4. Click **Upload**
 
 The ESP32 will automatically run the read → publish → deep sleep cycle.
 
-Repository Structure
+---
+
+## Repository Structure
+
 /Arduino Code
-    mainCode/          → ESP32 firmware
-/AutoCAD 2D            → Structural drawings
-/Fusion                → Mechanical models
-/PCB                   → PCB layout (Rev. 3.0)
-/Website               → Old version of the website
+mainCode/ → ESP32 firmware
+/AutoCAD 2D → Structural drawings
+/Fusion → Mechanical models
+/PCB → PCB layout (Rev. 3.0)
+/Website → Old version of the website
 LICENSE
 README.md
 
-Technologies Used
+yaml
+Copy code
 
-ESP32 (C++)
+---
 
-MQTT / Blynk
+## Technologies Used
 
-AutoCAD 2D
+- ESP32 (C++)  
+- MQTT / Blynk  
+- AutoCAD 2D  
+- Fusion 360  
+- PCB EDA tools  
+- HTML/CSS/JS (legacy website)
 
-Fusion 360
+---
 
-PCB EDA tools
-
-HTML/CSS/JS (legacy website)
-
-License
+## License
 
 Released under the MIT License.
